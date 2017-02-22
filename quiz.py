@@ -8,7 +8,7 @@ class Quiz:
     questions = []
 
     def __init__(self):
-        # generate 10 radnom questions with numbers from 1 to 10
+        # generate 10 random questions with numbers from 1 to 10
         # add these questions into self.questions
 
     def take_quiz(self):

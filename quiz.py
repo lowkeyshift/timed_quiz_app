@@ -1,12 +1,12 @@
 import datetime
 import random
 
-from questions import Add, Multiply
+from questions import Add, Subtraction, Multiply
 
 
 class Quiz:
     questions = []
-    answer = []
+    answers = []
 
     def __init__(self):
         question_types = (Add, Subtraction, Multiply)
@@ -25,7 +25,7 @@ class Quiz:
 
         # ask all of the questions
         for question in self.questions:
-            self.answer.append(self.ask(question))
+            self.answers.append(self.ask(question))
         else:
             # log the end time
             self.end_time = datetime.datetime.now()
@@ -55,13 +55,14 @@ class Quiz:
     def total_correct(self):
         # return the total # of correct answers
         total = 0
-        for answer in self.answer:
-            if answer[0]:
+        for answer in self.answers:
+            if answer[0] == True:
                 total += 1
-            return total
+        return total
 
     def summary(self):
         # print how many you got right and the total # of questions. 5/10
+        print(self.total_correct())
         print("You got {} out of {} right.".format(
             self.total_correct(), len(self.questions)
         ))
